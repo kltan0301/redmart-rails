@@ -10,6 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+/*Bootstrap defaults*/
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "bootstrap/variables";
+
+ @import "partials/header";
+ @import "partials/footer";
+ @import "static_pages";
+ @import "custom";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);

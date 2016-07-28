@@ -1,0 +1,28 @@
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  color: black;
+  a {
+    color: gray;
+    &:hover {
+      color: #35A7FF;
+      text-decoration: none;
+    }
+  }
+  p {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+.footer_container{
+  margin-top: 14%;
+}

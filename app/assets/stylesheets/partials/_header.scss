@@ -1,0 +1,22 @@
+
+h1 {
+  text-align: center;
+}
+.navbar {
+  background: none;
+  border: none;
+  padding-top: 25px;
+}
+.navbar-right {
+  padding-right: 20px;
+}
+.navbar-nav {
+  li > a {
+    color: #38616C;
+
+    &:hover {
+      color: #35A7FF;
+      background: none;
+    }
+  }
+}
