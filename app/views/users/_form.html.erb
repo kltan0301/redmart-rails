@@ -1,5 +1,5 @@
+<% provide(:title, "Sign Up") %>
 <div class="container">
-<div class="jumbotron">
   <%= form_for(user) do |f| %>
     <% if user.errors.any? %>
       <div id="error_explanation">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :Credit_Card_Number %>
+      <%= f.label :cc_number, 'Credit Card Number'%>
       <%= f.text_field :cc_number %>
     </div>
 
@@ -42,5 +42,4 @@
       <%= f.submit %>
     </div>
   <% end %>
-</div>
 </div>

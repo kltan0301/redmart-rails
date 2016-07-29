@@ -2,17 +2,27 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :products, through: :reviews
 
-  # VALIDATION
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  #form validity constraints
   before_save { self.email = email.downcase }
-  
-  #Ensure field validity
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
   validates :name,
             presence: true,
-            length: { maximum: 50, message: 'The name is too long' }
+            length: { maximum: 50 }
+
   validates :email,
             presence: true,
-            length: { maximum: 50 },
-            format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
+            length: { maximum: 255 },
+            format: { with: VALID_EMAIL_REGEX }
+
+  has_secure_password
+
+  validates :password,
+            presence: true,
+            length: { minimum: 6 }
+
+  validates :cc_number,
+            allow_blank: true,
+            length: { minimum: 13, maximum: 19, message: 'Credit card number invalid'}
 end

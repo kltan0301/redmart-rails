@@ -4,10 +4,10 @@ one:
   name: MyString
   brand: MyString
   category: MyString
-  price: 
+  price: 9.99
 
 two:
   name: MyString
   brand: MyString
   category: MyString
-  price: 
+  price: 9.99
