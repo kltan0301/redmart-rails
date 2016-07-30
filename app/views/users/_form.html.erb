@@ -1,45 +1,40 @@
 <% provide(:title, "Sign Up") %>
-<div class="container">
-  <%= form_for(user) do |f| %>
-    <% if user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-        <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+<div class="container userform">
+    <%= form_for(user,  url: signup_path) do |f| %>
+    <%=render 'partials/error_messages'%>
 
     <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
     </div>
 
     <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
     </div>
 
     <div class="field">
-      <%= f.label :address %>
-      <%= f.text_field :address %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control'%>
     </div>
 
     <div class="field">
-      <%= f.label :password_digest %>
-      <%= f.text_field :password_digest %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control'%>
     </div>
 
     <div class="field">
-      <%= f.label :cc_number, 'Credit Card Number'%>
-      <%= f.text_field :cc_number %>
+        <%= f.label :address %>
+        <%= f.text_field :address, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+        <%= f.label :cc_number, 'Credit Card Number'%>
+        <%= f.text_field :cc_number, class: 'form-control' %>
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+        <%= f.submit nil, class: 'btn btn-primary submit_btn' %>
     </div>
-  <% end %>
+    <% end %>
 </div>

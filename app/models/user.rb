@@ -25,4 +25,10 @@ class User < ApplicationRecord
   validates :cc_number,
             allow_blank: true,
             length: { minimum: 13, maximum: 19, message: 'Credit card number invalid'}
+
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+
+    Bcrypt::Password.create(string, cost: cost)
+  end
 end

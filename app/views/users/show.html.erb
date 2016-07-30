@@ -1,29 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "User Profile") %>
+<div class="container">
+  <h2><%=@user.name.slice(0,1).capitalize + @user.name.slice(1..-1)%>'s Profile Page</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <div class="jumbotron">
+  <%= gravatar_for @user %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="profile_container">
+    <h3>Email: <%= @user.email %></h3>
+    <h3>Address: <%= @user.address %></h3>
+    <h3>Credit card no.:
+      <%(1..@user.cc_number.length-4).each do %>
+        X
+        <%end%>
+        <%=@user.cc_number.slice(@user.cc_number.length-4..-1)%>
+    </h3>
+  </div>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Cc number:</strong>
-  <%= @user.cc_number %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

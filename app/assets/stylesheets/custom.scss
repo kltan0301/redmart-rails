@@ -6,8 +6,6 @@ h1, h2, h3, h4, h5, p {
   font-family: 'Poiret One', cursive;
   font-size: 4.5em;
 }
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 /* mixins, variables, etc. */
 
@@ -19,14 +17,6 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -36,4 +26,26 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+.userform {
+  width: 50%;
+}
+.gravatar {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+}
+.gravatar_edit {
+  margin-top: 15px;
+}
+.profile_container {
+  display: inline-block;
+  margin-top: -20px;
+}
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }

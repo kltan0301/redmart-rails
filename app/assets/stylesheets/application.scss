@@ -12,13 +12,13 @@
  *
  */
 /*Bootstrap defaults*/
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "bootstrap/variables";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap/variables";
 
- @import "partials/header";
- @import "partials/footer";
- @import "static_pages";
- @import "custom";
+@import "partials/header";
+@import "partials/footer";
+@import "static_pages";
+@import "custom";
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
