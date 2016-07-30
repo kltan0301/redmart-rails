@@ -1,6 +1,5 @@
-<% provide(:title, "Sign Up") %>
 <div class="container userform">
-    <%= form_for(user,  url: signup_path) do |f| %>
+    <%= form_for(user) do |f| %>
     <%=render 'partials/error_messages'%>
 
     <div class="field">
@@ -34,7 +33,7 @@
     </div>
 
     <div class="actions">
-        <%= f.submit nil, class: 'btn btn-primary submit_btn' %>
+        <%= f.submit yield(:btn), class: 'btn btn-primary submit_btn' %>
     </div>
     <% end %>
 </div>

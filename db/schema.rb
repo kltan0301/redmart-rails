@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160729001638) do
     t.string   "brand"
     t.string   "category"
     t.decimal  "price",      precision: 10, scale: 2
+    t.string   "image_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
