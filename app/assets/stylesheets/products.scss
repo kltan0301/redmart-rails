@@ -1,3 +1,30 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.product_disp {
+  display: inline-block;
+  vertical-align: top;
+  margin: 30px;
+  width: 200px;
+  height: 300px;
+  color: black;
+  
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-decoration: none;
+  }
+}
+.product_info {
+  margin: 10px 10px;
+}
+.product_section {
+  text-align: center;
+}
+.categoryList {
+  text-align:center;
+}
+.product_img, .pdt_container {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}

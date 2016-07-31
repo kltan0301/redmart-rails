@@ -3,10 +3,10 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav">
                 <li>
-                    <%= link_to "Home",   home_path %>
+                    <%= link_to "Home", home_path %>
                 </li>
                 <li>
-                    <a href="#">Products</a>
+                    <%=link_to "Products", products_path%>
                 </li>
             </ul>
         </div>
@@ -25,7 +25,6 @@ Account <b class="caret"></b></a>
                     </li>
                   </ul>
                 </li>
-                <li><a href="#">My Reviews</a></li>
               <%else%>
                 <li>
                     <%= link_to "Sign up", signup_path %>

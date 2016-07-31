@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0'
 # Use bcrypt for passwords
 gem 'bcrypt', '3.1.11'
+# Use faker for data
+gem 'faker', '~> 1.6', '>= 1.6.3'
 # Use bootstrap
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 # Use Puma as the app server
@@ -24,6 +26,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

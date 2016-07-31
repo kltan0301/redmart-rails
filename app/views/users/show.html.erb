@@ -1,20 +1,33 @@
 <% provide(:title, "User Profile") %>
 <div class="container">
-  <h2><%=@user.name.slice(0,1).capitalize + @user.name.slice(1..-1)%>'s Profile Page</h1>
-
-  <div class="jumbotron">
-  <%= gravatar_for @user %>
-
-  <div class="profile_container">
-    <h3>Email: <%= @user.email %></h3>
-    <h3>Address: <%= @user.address %></h3>
-    <h3>Credit card no.:
-      <%(1..@user.cc_number.length-4).each do %>
-        X
-        <%end%>
-        <%=@user.cc_number.slice(@user.cc_number.length-4..-1)%>
-    </h3>
-  </div>
-</div>
-
+    <aside class="col-md-4">
+        <section class="user_info">
+            <h2>Profile Page</h1>
+            <div class="jumbotron">
+                <%= gravatar_for @user %>
+                <div class="profile_container">
+                    <h3>Name: <%=@user.name.slice(0,1).capitalize + @user.name.slice(1..-1)%></h3>
+                    <h3>Email:
+                        <%= @user.email %></h3>
+                    <h3>Address:
+                        <%= @user.address %></h3>
+                    <h3>Credit card no.:
+                        <%(1..@user.cc_number.length-4).each do %>
+                        X
+                        <%end%>
+                        <%=@user.cc_number.slice(@user.cc_number.length-4..-1)%>
+                    </h3>
+                </div>
+              </div>
+          </section>
+    </aside>
+    <div class="col-md-8">
+      <% if @user.reviews.any? %>
+        <h3>Reviews (<%= @user.reviews.count %>)</h3>
+        <ol class="reviews">
+          <%= render @reviews %>
+        </ol>
+          <%= will_paginate @reviews %>
+        <% end %>
+    </div>
 </div>

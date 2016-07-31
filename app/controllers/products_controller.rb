@@ -4,12 +4,21 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:category] && params[:category] != "All"
+      @products = Product.where(category: params[:category])
+    elsif params[:id]
+      @products = Product.where(id: params[:id])
+    else
+      @products = Product.all
+    end
+    @product_cat = Product.uniq.pluck(:category)
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
+    @pdt_reviews = Review.where("product_id = ?", params[:id])
   end
 
   # GET /products/new

@@ -15,39 +15,39 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @product = Product.find(params[:product_id])
   end
 
   # GET /reviews/1/edit
   def edit
+    @review = Review.find(params[:id])
+    @product = @review.product
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.save
+      flash[:success] = "Review has been added."
+      redirect_to products_path
+    else
+      flash[:danger] = "Review could not be added."
+      render 'static_pages/home'
     end
   end
 
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
-      else
-        format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    @review = Review.find(params[:id])
+
+    if @review.update_attributes(review_params)
+      flash[:success] = "Review has been updated"
+      redirect_to @review.product
+    else
+      redirect_to root_url
     end
   end
 
@@ -69,6 +69,7 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:content, :rating, :product_id, :user_id)
+      params.require(:review).permit(:content, :rating, :product_id)
     end
+
 end

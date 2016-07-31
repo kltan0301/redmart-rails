@@ -1,6 +1,9 @@
+<% provide(:title, "Edit Review") %>
 <h1>Editing Review</h1>
 
-<%= render 'form', review: @review %>
+<div class="container edit_details">
+  <h2>Product name: <%=@product.name%></h2>
+  <img src="<%=@product.image_url%>" alt="<%=@product.name%>" />
+</div>
 
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+<%= render 'form', review: @review %>
