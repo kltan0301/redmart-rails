@@ -11,24 +11,24 @@ require 'faker'
 @categoryList = ['New', 'Marketplace', 'Fresh Produce', 'Meat & Seafood', 'Dairy & Chilled', 'Bakery', 'Frozen', 'Beverages', 'Food Cupboard', 'Alcohol', 'Health & Beauty', 'Household & Pet', 'Baby & Child', 'Home & Outdoor']
 
 # Generate fake data for products
-# (0..30).each do |_item|
-#   Product.create(
-#     name: Faker::Commerce.product_name,
-#     price: Faker::Commerce.price,
-#     brand: Faker::Company.name,
-#     category: @categoryList.sample,
-#     image_url: Faker::Placeholdit.image('150x150', 'jpg')
-#   )
-# end
-
-@user_ids = User.pluck(:id)
-@product_ids = Product.pluck(:id)
-
-# Generate fake data for reviews
-(0..5).each {|item|
-  User.find(@user_ids.sample).reviews.create(
-    product_id: @product_ids.sample,
-    content: Faker::Company.catch_phrase,
-    rating: [1,2,3,4,5].sample
+(0..30).each do |_item|
+  Product.create(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price,
+    brand: Faker::Company.name,
+    category: @categoryList.sample,
+    image_url: Faker::Placeholdit.image('150x150', 'jpg')
   )
-}
+end
+#
+# @user_ids = User.pluck(:id)
+# @product_ids = Product.pluck(:id)
+#
+# # Generate fake data for reviews
+# (0..5).each {|item|
+#   User.find(@user_ids.sample).reviews.create(
+#     product_id: @product_ids.sample,
+#     content: Faker::Company.catch_phrase,
+#     rating: [1,2,3,4,5].sample
+#   )
+# }

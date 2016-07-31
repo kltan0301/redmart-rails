@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  # before_action :correct_user, only: :destroy
   # GET /reviews
   # GET /reviews.json
   def index
@@ -55,10 +55,8 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1.json
   def destroy
     @review.destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = "Post has been deleted."
+    redirect_to request.referrer || root_url
   end
 
   private
@@ -70,6 +68,11 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:content, :rating, :product_id)
+    end
+
+    def correct_user
+     @review = current_user.reviews.find_by(id: params[:id])
+     redirect_to root_url if @review.nil?
     end
 
 end

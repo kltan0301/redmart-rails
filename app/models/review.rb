@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  belongs_to :product, dependent: :destroy
-  
+  belongs_to :user
+  belongs_to :product
+
   default_scope -> { order(created_at: :desc) }
 
   validates :user_id, presence: true
