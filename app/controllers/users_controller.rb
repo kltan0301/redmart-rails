@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
+  before_action :require_logout, only: [:new]
   # GET /users
   # GET /users.json
   # User should not be allowed to view all other users
