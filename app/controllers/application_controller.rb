@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
+
+    def require_logout
+     if logged_in?
+       flash[:warning] = "You must log out to create/log in as a new user"
+       redirect_to(root_url)
+     end
+    end
 end

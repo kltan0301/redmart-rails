@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :require_logout, only: [:new]
+  
   def new
-    if logged_in?
-      redirect_to root_url
-    end
   end
 
   def create
