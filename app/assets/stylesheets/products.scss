@@ -8,7 +8,7 @@
   width: 200px;
   height: 300px;
   color: black;
-  
+
   &:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     text-decoration: none;
@@ -19,9 +19,6 @@
 }
 .product_section {
   text-align: center;
-}
-.categoryList {
-  text-align:center;
 }
 .product_img, .pdt_container {
   display: inline-block;
