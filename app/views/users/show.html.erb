@@ -3,20 +3,20 @@
     <aside class="col-md-4">
         <section class="user_info">
             <h2>Profile Page</h1>
-            <div class="jumbotron">
+            <div class="jumbotron userdetails">
                 <%= gravatar_for @user %>
                 <div class="profile_container">
-                    <h3>Name: <%=@user.name.slice(0,1).capitalize + @user.name.slice(1..-1)%></h3>
-                    <h3>Email:
-                        <%= @user.email %></h3>
-                    <h3>Address:
-                        <%= @user.address %></h3>
-                    <h3>Credit card no.:
+                    <h5>Name:<span><%=@user.name.slice(0,1).capitalize + @user.name.slice(1..-1)%></span></h5>
+                    <h5>Email:<br>
+                        <span><%= @user.email %></span></h5>
+                    <h5>Address:<br>
+                        <%= @user.address %></h5>
+                    <h5>Credit card no.:<br>
                         <%(1..@user.cc_number.length-4).each do %>
                         X
                         <%end%>
                         <%=@user.cc_number.slice(@user.cc_number.length-4..-1)%>
-                    </h3>
+                    </h5>
                 </div>
               </div>
           </section>

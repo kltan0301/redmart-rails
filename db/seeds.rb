@@ -10,6 +10,15 @@ require 'faker'
 # # For creating dummy category data
 @categoryList = ['New', 'Marketplace', 'Fresh Produce', 'Meat & Seafood', 'Dairy & Chilled', 'Bakery', 'Frozen', 'Beverages', 'Food Cupboard', 'Alcohol', 'Health & Beauty', 'Household & Pet', 'Baby & Child', 'Home & Outdoor']
 
+(0..10).each do |_item|
+  User.create(
+    name: Faker::StarWars.character, #=> "Anakin Skywalker"
+    email: Faker::Internet.email,
+    password: 'password',
+    address: Faker::StarWars.planet,
+    cc_number: Faker::Number.number(16)
+  )
+end
 # Generate fake data for products
 (0..30).each do |_item|
   Product.create(
@@ -21,14 +30,14 @@ require 'faker'
   )
 end
 #
-# @user_ids = User.pluck(:id)
-# @product_ids = Product.pluck(:id)
+@user_ids = User.pluck(:id)
+@product_ids = Product.pluck(:id)
 #
 # # Generate fake data for reviews
-# (0..5).each {|item|
-#   User.find(@user_ids.sample).reviews.create(
-#     product_id: @product_ids.sample,
-#     content: Faker::Company.catch_phrase,
-#     rating: [1,2,3,4,5].sample
-#   )
-# }
+(0..20).each {|item|
+  User.find(@user_ids.sample).reviews.create(
+    product_id: @product_ids.sample,
+    content: Faker::Company.catch_phrase,
+    rating: [1,2,3,4,5].sample
+  )
+}
